@@ -1,0 +1,6 @@
+[tools]
+node = "lts"
+pnpm = "latest"
+
+[settings]
+lockfile = true # Enable lock file
