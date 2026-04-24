@@ -1,6 +1,6 @@
 {
   "name": "smollit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Tiny string template helpers",
   "keywords": [
     "literal",
@@ -22,7 +22,12 @@
   "module": "index.js",
   "types": "./index.d.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./lit": "./src/lit/index.ts",
+    "./txt": "./src/txt/index.ts",
+    "./txts": "./src/txts/index.ts",
+    "./utils": "./src/utils/index.ts",
+    "./package.json": "./package.json"
   },
   "publishConfig": {
     "exports": {
@@ -34,6 +39,46 @@
         "import": {
           "types": "./index.d.ts",
           "default": "./index.js"
+        }
+      },
+      "./lit": {
+        "require": {
+          "types": "./lit/index.d.cts",
+          "default": "./lit/index.cjs"
+        },
+        "import": {
+          "types": "./lit/index.d.ts",
+          "default": "./lit/index.js"
+        }
+      },
+      "./txt": {
+        "require": {
+          "types": "./txt/index.d.cts",
+          "default": "./txt/index.cjs"
+        },
+        "import": {
+          "types": "./txt/index.d.ts",
+          "default": "./txt/index.js"
+        }
+      },
+      "./txts": {
+        "require": {
+          "types": "./txts/index.d.cts",
+          "default": "./txts/index.cjs"
+        },
+        "import": {
+          "types": "./txts/index.d.ts",
+          "default": "./txts/index.js"
+        }
+      },
+      "./utils": {
+        "require": {
+          "types": "./utils/index.d.cts",
+          "default": "./utils/index.cjs"
+        },
+        "import": {
+          "types": "./utils/index.d.ts",
+          "default": "./utils/index.js"
         }
       },
       "./package.json": "./package.json"

@@ -20,6 +20,8 @@ The `lit` function trims and levels indentation of a string to a minimal common 
 
 ```ts
 import { lit } from "smollit";
+// Also available as a module:
+// import { lit } from "smollit/lit";
 
 function poem() {
   console.log(lit`
@@ -46,6 +48,8 @@ The `txt` function trims and levels indentation of a string to a minimal common 
 
 ```ts
 import { txt } from "smollit";
+// Also available as a module:
+// import { txt } from "smollit/txt";
 
 function quote() {
   console.log(txt`
@@ -67,6 +71,53 @@ function text() {
     unsuitable to virtue and reasonable nature.
   `);
   //=> "You have power over your mind—not outside events. Realize this, and you will find strength.\n\nThe happiness of your life depends upon the quality of your thoughts. Therefore, guard accordingly, and take care that you entertain no notions unsuitable to virtue and reasonable nature."
+}
+```
+
+### `txts`
+
+The `txts` function normalizes multiple paragraph inputs with `txt` and joins them with a blank line.
+
+```ts
+import { txts } from "smollit";
+// Also available as a module:
+// import { txts } from "smollit/txts";
+
+function paragraphs() {
+  console.log(
+    txts(
+      `
+        First paragraph line one
+        line two
+      `,
+      "Second paragraph",
+    ),
+  );
+  //=> "First paragraph line one line two\n\nSecond paragraph"
+}
+```
+
+It also filters out non-string, falsy values, and empty strings:
+
+```ts
+function paragraphs() {
+  console.log(
+    txts(
+      `
+        First paragraph line one
+        line two
+      `,
+      "    ",
+      "",
+      null,
+      undefined,
+      false,
+      1,
+      2n,
+      "Second paragraph",
+    ),
+  );
+  //=> "First paragraph line one line two\n\nSecond paragraph"
 }
 ```
 
